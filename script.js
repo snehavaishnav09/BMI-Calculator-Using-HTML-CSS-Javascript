@@ -24,31 +24,33 @@ function countBmi(){
   }
   form.reset();
   var bmi = Number(p[2])/(Number(p[1])/100*Number(p[1])/100);
-      
+
   var result = '';
-  if(bmi<18.5){
-    result = 'Underweight';
-     }else if(18.5<=bmi&&bmi<=24.9){
-    result = 'Healthy';
-     }else if(25<=bmi&&bmi<=29.9){
+  if(bmi<16){
+    result = 'Severe Thinness';
+     }else if(16<=bmi&&bmi<=17){
+    result = 'Moderate Thinness';
+     }else if(17<=bmi&&bmi<=18.5){
+    result = 'Mild Thinness';
+     }else if(18.5<=bmi&&bmi<=25){
+    result = 'Normal';
+     }else if(25<=bmi&&bmi<=30){
     result = 'Overweight';
-     }else if(30<=bmi&&bmi<=34.9){
-    result = 'Obese';
-     }else if(35<=bmi){
-    result = 'Extremely obese';
+     }else if(30<=bmi){
+    result = 'obese';
      }
-  
+
   var h1 = document.createElement("h1");
   var h2 = document.createElement("h2");
 
   var t = document.createTextNode(result);
   var b = document.createTextNode('BMI: ');
   var r = document.createTextNode(parseFloat(bmi).toFixed(2));
-  
+
   h1.appendChild(t);
   h2.appendChild(b);
   h2.appendChild(r);
-  
+
   document.body.appendChild(h1);
   document.body.appendChild(h2);
   document.getElementById("submit").removeEventListener("click", countBmi);
